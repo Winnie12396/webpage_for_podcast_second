@@ -1,12 +1,70 @@
 <template>
   <v-container>
-    <div class="flex-no-wrap justify-space-between">
+    <v-row
+      v-for="n in 1"
+      :key="n"
+      no-gutters
+      align="center"
+      align-content="center"
+      justify="start"
+      flex
+    >
+      <v-col>
+
+        <v-img
+          class="align-end logo"
+          max-width="350"
+          :aspect-ratio="1"
+          src="@/assets/logo-fish.jpg"
+          transition="scroll-x-transition"
+        >
+        </v-img>
+
+        
+      </v-col>
+      <v-col>
+        <v-card
+          class="mx-auto"
+          max-width="350"
+          flat
+        >
+          <v-card-title><h4>天空裡的魚</h4></v-card-title>
+          <v-card-subtitle>播客</v-card-subtitle>
+
+          <v-card-text>
+            Phasellus magna. Quisque rutrum. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Aliquam lobortis. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.
+
+            In turpis. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In turpis. Pellentesque dapibus hendrerit tortor. Ut varius tincidunt libero.
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+    
+  </v-container>
+</template>
+
+<script>
+  export default {
+    name: 'Intro',
+
+    data: () => ({
+      show: true,
+    }),
+  }
+</script>
+
+<style>
+
+</style>
+
+<!--
+  <div class="justify-space-between">
 
       <v-img
         class="align-end"
-        max-width="200"
-        :aspect-ratio="1/1"
-        src="@/assets/logo.png"
+        max-width="350"
+        :aspect-ratio="1"
+        src="@/assets/logo-fish.jpg"
       >
       </v-img>
       <v-card
@@ -14,7 +72,7 @@
         max-width="336"
         flat
       >
-        <v-card-title>天空裡的魚</v-card-title>
+        <v-card-title><h4>天空裡的魚</h4></v-card-title>
         <v-card-subtitle>播客</v-card-subtitle>
 
         <v-card-text>
@@ -24,14 +82,37 @@
         </v-card-text>
       </v-card>
     </div>
-  </v-container>
-</template>
 
-<script>
-  export default {
-    name: 'Intro',
+-->
 
-    data: () => ({
-    }),
-  }
-</script>
+
+<!--
+      <v-card
+      class="mx-auto"
+      color="primary"
+      width="100vw"
+    >
+      <v-img
+        class="align-center"
+        max-width="350"
+        :aspect-ratio="1"
+        src="@/assets/logo-fish.jpg"
+      >
+      </v-img>
+      <v-card
+
+        max-width="336"
+        flat
+      >
+        <v-card-title><h4>天空裡的魚</h4></v-card-title>
+        <v-card-subtitle>播客</v-card-subtitle>
+
+        <v-card-text>
+          Phasellus magna. Quisque rutrum. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Aliquam lobortis. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.
+
+          In turpis. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In turpis. Pellentesque dapibus hendrerit tortor. Ut varius tincidunt libero.
+        </v-card-text>
+      </v-card>
+    </v-card>
+
+-->
