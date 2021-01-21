@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-layout row wrap justify-space-around>
-      <v-flex xs12 md6>
+    <v-layout row wrap justify-center>
+      <v-flex xs12 md6 xl3>
         <v-img
           max-width="350"
           :aspect-ratio="1"

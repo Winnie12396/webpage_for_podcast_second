@@ -1,21 +1,11 @@
 <template>
   <v-container>
-    <v-row
-      no-gutters
-      align="center"
-      align-content="center"
-      justify="start"
-    >
-      <v-col
+    <v-layout row wrap justify-space-around>
+      <v-flex xs6 md4 xl3
         v-for="item in items"
         :key="item.id"
-        cols="4"
       >
-
-        <v-card
-          class="mx-auto"
-          max-width="336"
-        >
+        <v-card>
           <v-img
             class="align-end"
             :aspect-ratio="1/1"
@@ -29,16 +19,16 @@
             {{ item.text }}
           </v-card-text>
           <v-btn
-            color="orange"
+            color="primary"
+            hover
           >
             播放
           </v-btn>
         </v-card>
-      </v-col>
-    
-    </v-row>
-
-    
+        <v-divider></v-divider>
+      </v-flex>
+          
+    </v-layout>   
   </v-container>
 </template>
 
@@ -65,6 +55,27 @@
         {
           id: 3,
           title: "ho",
+          subtitle: "",
+          text: "",
+          src: ""
+        },
+        {
+          id: 4,
+          title: "yo",
+          subtitle: "",
+          text: "",
+          src: ""
+        },
+        {
+          id: 5,
+          title: "yeee",
+          subtitle: "",
+          text: "",
+          src: ""
+        },
+        {
+          id: 6,
+          title: "yeeeeee",
           subtitle: "",
           text: "",
           src: ""
@@ -100,4 +111,45 @@
       </v-card>
     </div>
 
+-->
+
+<!--
+    <v-row
+      no-gutters
+      align="center"
+      align-content="center"
+      justify-space-around
+    >
+      <v-col
+        v-for="item in items"
+        :key="item.id"
+        cols="4"
+      >
+
+        <v-card
+          class="mx-auto"
+          aspect-ratio="3/5"
+
+        >
+          <v-img
+            class="align-end"
+            :aspect-ratio="1/1"
+            src="@/assets/logo.png"
+          >
+          </v-img>
+          <v-card-title>{{ item.title }}</v-card-title>
+          <v-card-subtitle>{{ item.subtitle }}</v-card-subtitle>
+
+          <v-card-text>
+            {{ item.text }}
+          </v-card-text>
+          <v-btn
+            color="primary"
+          >
+            播放
+          </v-btn>
+        </v-card>
+      </v-col>
+    
+    </v-row>
 -->

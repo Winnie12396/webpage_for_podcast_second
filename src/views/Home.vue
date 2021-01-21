@@ -40,8 +40,8 @@
 
 <script>
 
-import Intro from '@/components/Intro.vue'
-import Latest from '@/components/Latest.vue'
+import Intro from '../components/Intro.vue'
+import Latest from '../components/Latest.vue'
 export default {
   name: 'Home',
 

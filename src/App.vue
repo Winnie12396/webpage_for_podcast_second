@@ -14,7 +14,7 @@
 
           <v-spacer></v-spacer>
           <v-toolbar-items>
-            <v-btn text  href="/home">主頁</v-btn>
+            <v-btn text  href="/">主頁</v-btn>
             <v-btn text  href="/about">關於</v-btn>
             <v-btn text>所有單集</v-btn>
             <v-btn text>文章</v-btn>
@@ -27,6 +27,7 @@
     <v-content>
       <Intro/>
       <Latest/>
+      <Episodes/>
     
     </v-content>
     
@@ -40,12 +41,14 @@
 
 import Intro from './components/Intro.vue'
 import Latest from './components/Latest.vue'
+import Episodes from './components/Episodes.vue'
 export default {
   name: 'App',
 
   components: {
     Intro,
-    Latest
+    Latest,
+    Episodes
   },
 
   data: () => ({

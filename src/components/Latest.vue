@@ -6,7 +6,7 @@
     
     <v-layout row justify-center>
 
-      <v-flex xs12 md3>
+      <v-flex xs12 md4 xl3>
         <v-card
           class="mx-auto"
         >
@@ -52,8 +52,8 @@
 
 .titleofthispart {
 
-  padding-top: 12%;
-  padding-bottom: 2%;
+  padding-top: 15%;
+  padding-bottom: 5%;
   text-align: center;
 }
 
