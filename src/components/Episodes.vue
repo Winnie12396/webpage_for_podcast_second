@@ -22,8 +22,16 @@
           <v-btn
             color="primary"
             hover
+            @click="play"
           >
             播放
+          </v-btn>
+          <v-btn
+            color="success"
+            hover
+            @click="pause"
+          >
+            暫停
           </v-btn>
         </v-card>
         <v-divider></v-divider>
@@ -38,6 +46,8 @@
     name: 'Episodes',
 
     data: () => ({
+      index: 0,
+      isPlaying: false,
       items: [
         {
           id: 1,
@@ -87,8 +97,54 @@
           text: "",
           src: ""
         },
-      ]
+      ],
+      current: {},
+      songs: [
+        {
+          title: "Ep.1 今天是生物藝術！來聊一個未來食物",
+          src: require('@/assets/final.mp3')
+        },
+        {
+          title: "Ep.2 今天是古典樂！來聽巴哈的郭德堡變奏曲",
+          src: require('@/assets/BWV988-Variatio2.mp3')
+        },
+        {
+          title: "Ep.3 今天是古典樂！來聽巴哈的郭德堡變奏曲",
+          src: require('@/assets/BWV988-Variatio4.mp3')
+        },
+        {
+          title: "Ep.4 今天是古典樂！來聽巴哈的郭德堡變奏曲",
+          src: require('@/assets/BWV988-Variatio6.mp3')
+        },
+        {
+          title: "Ep.5 今天是古典樂！來聽巴哈的郭德堡變奏曲",
+          src: require('@/assets/BWV988-Variatio12.mp3')
+        },
+        {
+          title: "Ep.6 今天是古典樂！來聽巴哈的郭德堡變奏曲",
+          src: require('@/assets/BWV988-Variatio18.mp3')
+        },
+      ],
+      player: new Audio()
     }),
+    methods () {
+      play (song) {
+        if (typeof song.src != "undefined") {
+          this.current = song;
+          this.player.src = this.current.src;
+        }
+        this.player.play();
+        this.isPlaying = true;
+      },
+      pause () {
+        this.player.pause();
+        this.isPlaying = false;
+      }
+    },
+    created () {
+      this.current = this.songs[this.index];
+      this.player.src = this.current.src;
+    }
   }
 </script>
 
