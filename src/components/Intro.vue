@@ -1,45 +1,35 @@
 <template>
   <v-container>
-    <v-row
-      v-for="n in 1"
-      :key="n"
-      no-gutters
-      align="center"
-      align-content="center"
-      justify="start"
-      flex
-    >
-      <v-col>
-
+    <v-layout row wrap justify-space-around>
+      <v-flex xs12 md6>
         <v-img
-          class="align-end logo"
           max-width="350"
           :aspect-ratio="1"
           src="@/assets/logo-fish.jpg"
           transition="scroll-x-transition"
         >
         </v-img>
-
-        
-      </v-col>
-      <v-col>
+      </v-flex>   
+      <v-flex xs12 md6>
         <v-card
           class="mx-auto"
-          max-width="350"
           flat
         >
           <v-card-title><h4>天空裡的魚</h4></v-card-title>
           <v-card-subtitle>播客</v-card-subtitle>
 
           <v-card-text>
-            Phasellus magna. Quisque rutrum. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Aliquam lobortis. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.
+            <p>一個19歲大學女生，在一次期末作業之中突發奇想，也許可以來試試看做podcast這件事。</p>
+            <p>主軸是跟吃有關的科學和其他事情，配上其他心血來潮的支線劇情~</p>
 
-            In turpis. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In turpis. Pellentesque dapibus hendrerit tortor. Ut varius tincidunt libero.
+            <p>目前在Firstory、KKbox、Spotify、Apple Podcasts跟PocketCasts皆可收聽喔</p>
+            <p>期待與你相見！</p>
+
+            <p>有任何想聊的可以私訊 IG @fishinthesky1212 或寄信給我：fishinthesky1212@gmail.com</p>
           </v-card-text>
         </v-card>
-      </v-col>
-    </v-row>
-    
+      </v-flex> 
+    </v-layout>    
   </v-container>
 </template>
 
@@ -115,4 +105,46 @@
       </v-card>
     </v-card>
 
+-->
+
+<!--
+    <v-row
+      v-for="n in 1"
+      :key="n"
+      no-gutters
+      align="center"
+      align-content="center"
+      justify="start"
+      flex
+    >
+      <v-col>
+
+        <v-img
+          class="align-end logo"
+          max-width="350"
+          :aspect-ratio="1"
+          src="@/assets/logo-fish.jpg"
+          transition="scroll-x-transition"
+        >
+        </v-img>
+
+        
+      </v-col>
+      <v-col>
+        <v-card
+          class="mx-auto"
+          max-width="350"
+          flat
+        >
+          <v-card-title><h4>天空裡的魚</h4></v-card-title>
+          <v-card-subtitle>播客</v-card-subtitle>
+
+          <v-card-text>
+            Phasellus magna. Quisque rutrum. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Aliquam lobortis. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.
+
+            In turpis. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In turpis. Pellentesque dapibus hendrerit tortor. Ut varius tincidunt libero.
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
 -->
