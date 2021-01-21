@@ -10,7 +10,7 @@
           <v-img
             class="align-end"
             :aspect-ratio="1/1"
-            src="@/assets/logo.png"
+            :src="item.pic"
           >
           </v-img>
           <v-card-title>{{ item.title }}</v-card-title>
@@ -41,43 +41,49 @@
       items: [
         {
           id: 1,
-          title: "hey",
-          subtitle: "",
+          title: "Ep.1 今天是生物藝術！",
+          subtitle: "來聊一個未來食物",
+          pic: require('@/assets/cloud1.jpg'),
           text: "",
           src: ""
         },
         {
           id: 2,
-          title: "hi",
-          subtitle: "",
+          title: "Ep.2 今天是古典樂！",
+          subtitle: "來聽巴哈的郭德堡變奏曲",
+          pic: require('@/assets/cloud2.jpg'),
           text: "",
           src: ""
         },
         {
           id: 3,
-          title: "ho",
-          subtitle: "",
+          title: "Ep.3 今天是古典樂！",
+          subtitle: "來聽巴哈的郭德堡變奏曲",
+          pic: require('@/assets/cloud3.jpg'),
           text: "",
           src: ""
         },
         {
           id: 4,
-          title: "yo",
-          subtitle: "",
+          title: "Ep.4 今天是古典樂！",
+          subtitle: "來聽巴哈的郭德堡變奏曲",
+          pic: require('@/assets/cloud1.jpg'),
           text: "",
           src: ""
         },
         {
           id: 5,
-          title: "yeee",
-          subtitle: "",
+          title: "Ep.5 今天是古典樂！",
+          subtitle: "來聽巴哈的郭德堡變奏曲",
+          pic: require('@/assets/cloud2.jpg'),
           text: "",
           src: ""
         },
         {
           id: 6,
-          title: "yeeeeee",
-          subtitle: "",
+          title: "Ep.6 今天是古典樂！",
+          subtitle: "來聽巴哈的郭德堡變奏曲",
+          pic: require('@/assets/cloud3.jpg'),
           text: "",
           src: ""
         },
