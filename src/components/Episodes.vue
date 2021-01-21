@@ -4,6 +4,7 @@
       <v-flex xs6 md4 xl3
         v-for="item in items"
         :key="item.id"
+        pa-4
       >
         <v-card>
           <v-img

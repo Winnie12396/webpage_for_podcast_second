@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-layout row wrap justify-center>
-      <v-flex xs12 md6 xl3>
+      <v-flex xs12 md6 xl3 py-10>
         <v-img
           max-width="350"
           :aspect-ratio="1"
@@ -10,7 +10,7 @@
         >
         </v-img>
       </v-flex>   
-      <v-flex xs12 md6>
+      <v-flex xs12 md6 py-10>
         <v-card
           class="mx-auto"
           flat

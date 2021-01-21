@@ -1,12 +1,14 @@
 <template>
   <v-container>
-    <div class="titleofthispart">
-      <h2>最新單集</h2>
-    </div>
-    
-    <v-layout row justify-center>
 
-      <v-flex xs12 md4 xl3>
+    <v-layout row justify-center ma-4>
+      <v-flex xs12 md4 xl3 pt-12 class="thisparttitle">
+        <h2>最新單集</h2>
+      </v-flex>
+    </v-layout>
+    <v-layout row justify-center ma-4>
+
+      <v-flex xs12 md4 xl3 pt-12 pb-50>
         <v-card
           class="mx-auto"
         >
@@ -49,11 +51,7 @@
 </script>
 
 <style>
-
-.titleofthispart {
-
-  padding-top: 15%;
-  padding-bottom: 5%;
+.thisparttitle {
   text-align: center;
 }
 
