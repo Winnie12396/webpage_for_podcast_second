@@ -42,7 +42,50 @@
 
       </v-flex>
           
-    </v-layout>   
+    </v-layout>
+    <div class="text-center">
+      <v-bottom-sheet inset hide-overlay>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            color="red"
+            dark
+            v-bind="attrs"
+            v-on="on"
+          >
+            Open Player
+          </v-btn>
+        </template>
+        <v-card tile v-show="playerOpened">
+
+          <v-list>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title>{{ playingTitle }}</v-list-item-title>
+                <v-list-item-subtitle>{{ playingSubtitle }}</v-list-item-subtitle>
+              </v-list-item-content>
+
+              <v-spacer></v-spacer>
+
+              <v-list-item-icon :class="{ 'mx-5': $vuetify.breakpoint.mdAndUp }">
+                <v-btn icon>
+                  <v-icon v-if="isPlaying" @click="pause">mdi-pause</v-icon>
+                  <v-icon v-else>mdi-play</v-icon>
+                </v-btn>
+              </v-list-item-icon>
+
+              <v-list-item-icon
+                class="ml-0"
+                :class="{ 'mr-3': $vuetify.breakpoint.mdAndUp }"
+              >
+                <v-btn icon @click="playerClose">
+                  <v-icon>mdi-close</v-icon>
+                </v-btn>
+              </v-list-item-icon>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </v-bottom-sheet>
+    </div>  
   </v-container>
 </template>
 
@@ -52,12 +95,15 @@
 
     data: () => ({
       isPlaying: false,
+      playerOpened: false,
+      playingTitle: "",
+      playingSubtitle: "",
       items: [
         {
           id: 1,
           index: 0,
           title: "Ep.1 今天是生物藝術！",
-          subtitle: "來聊一個未來食物",
+          subtitle: "來聊一個未來食物~",
           pic: require('@/assets/cloud1.jpg'),
           text: "",
           src: ""
@@ -66,7 +112,7 @@
           id: 2,
           index: 1,
           title: "Ep.2 今天是古典樂！",
-          subtitle: "來聽巴哈的郭德堡變奏曲",
+          subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud2.jpg'),
           text: "",
           src: ""
@@ -75,7 +121,7 @@
           id: 3,
           index: 2,
           title: "Ep.3 今天是古典樂！",
-          subtitle: "來聽巴哈的郭德堡變奏曲",
+          subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud3.jpg'),
           text: "",
           src: ""
@@ -84,7 +130,7 @@
           id: 4,
           index: 3,
           title: "Ep.4 今天是古典樂！",
-          subtitle: "來聽巴哈的郭德堡變奏曲",
+          subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud1.jpg'),
           text: "",
           src: ""
@@ -93,7 +139,7 @@
           id: 5,
           index: 4,
           title: "Ep.5 今天是古典樂！",
-          subtitle: "來聽巴哈的郭德堡變奏曲",
+          subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud2.jpg'),
           text: "",
           src: ""
@@ -102,7 +148,7 @@
           id: 6,
           index: 5,
           title: "Ep.6 今天是古典樂！",
-          subtitle: "來聽巴哈的郭德堡變奏曲",
+          subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud3.jpg'),
           text: "",
           src: ""
@@ -143,11 +189,18 @@
         this.player.src = this.current.src;
         this.player.play();
         this.isPlaying = true;
+        this.playerOpened = true;
+        this.playingTitle = this.songs[passindex].title;
+        this.playingSubtitle = this.songs[passindex].subtitle;
       },
       pause () {
         this.player.pause();
         this.isPlaying = false;
       },
+      playerClose () {
+        this.playerOpened = false;
+        this.pause();
+      }
     },
     created () {
       
