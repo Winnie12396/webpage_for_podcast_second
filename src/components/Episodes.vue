@@ -22,7 +22,7 @@
           <v-btn
             color="primary"
             hover
-            @click="play"
+            @click="play(item.index)"
           >
             播放
           </v-btn>
@@ -34,7 +34,7 @@
             暫停
           </v-btn>
         </v-card>
-        <v-divider></v-divider>
+
       </v-flex>
           
     </v-layout>   
@@ -46,11 +46,11 @@
     name: 'Episodes',
 
     data: () => ({
-      index: 0,
       isPlaying: false,
       items: [
         {
           id: 1,
+          index: 0,
           title: "Ep.1 今天是生物藝術！",
           subtitle: "來聊一個未來食物",
           pic: require('@/assets/cloud1.jpg'),
@@ -59,6 +59,7 @@
         },
         {
           id: 2,
+          index: 1,
           title: "Ep.2 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲",
           pic: require('@/assets/cloud2.jpg'),
@@ -67,6 +68,7 @@
         },
         {
           id: 3,
+          index: 2,
           title: "Ep.3 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲",
           pic: require('@/assets/cloud3.jpg'),
@@ -75,6 +77,7 @@
         },
         {
           id: 4,
+          index: 3,
           title: "Ep.4 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲",
           pic: require('@/assets/cloud1.jpg'),
@@ -83,6 +86,7 @@
         },
         {
           id: 5,
+          index: 4,
           title: "Ep.5 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲",
           pic: require('@/assets/cloud2.jpg'),
@@ -91,6 +95,7 @@
         },
         {
           id: 6,
+          index: 5,
           title: "Ep.6 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲",
           pic: require('@/assets/cloud3.jpg'),
@@ -127,23 +132,20 @@
       ],
       player: new Audio()
     }),
-    methods () {
-      play (song) {
-        if (typeof song.src != "undefined") {
-          this.current = song;
-          this.player.src = this.current.src;
-        }
+    methods: {
+      play (passindex) {
+        this.current = this.songs[passindex];
+        this.player.src = this.current.src;
         this.player.play();
         this.isPlaying = true;
       },
       pause () {
         this.player.pause();
         this.isPlaying = false;
-      }
+      },
     },
     created () {
-      this.current = this.songs[this.index];
-      this.player.src = this.current.src;
+      
     }
   }
 </script>
