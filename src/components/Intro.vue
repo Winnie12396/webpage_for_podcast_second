@@ -38,7 +38,7 @@
     name: 'Intro',
 
     data: () => ({
-      show: true,
+
     }),
   }
 </script>
