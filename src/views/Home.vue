@@ -1,15 +1,12 @@
 <template>
   <div class="home">
     <v-app>
-      <div class="bar">
-        <Toolbar/>
-
-      </div>
+      
 
       <v-content>
         <Intro/>
         <Latest/>
-        <Episodes/>
+        <Episodes-component/>
       
       </v-content>
       
@@ -24,7 +21,7 @@
 
 import Intro from '../components/Intro.vue'
 import Latest from '../components/Latest.vue'
-import Episodes from '../components/Episodes.vue'
+import Episodescomp from '../components/Episodescomp.vue'
 import Toolbar from '../components/Toolbar.vue'
 export default {
   name: 'Home',
@@ -32,7 +29,7 @@ export default {
   components: {
     Intro,
     Latest,
-    Episodes,
+    Episodescomp,
     Toolbar
   },
 

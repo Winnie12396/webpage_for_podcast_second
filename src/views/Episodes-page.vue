@@ -1,17 +1,17 @@
 <template>
-  <div class="episodes">
-    <h1>This is a page of all episodes</h1>
-  </div>
+  <v-content class="episodes">
+    <Episodescomp/>
+  </v-content>
 </template>
 
 <script>
 
-import Episodes from '../components/Episodes.vue'
+import Episodescomp from '../components/Episodescomp.vue'
 export default {
   name: 'Episodes',
 
   components: {
-    Episodes,
+    Episodescomp,
   },
 
   data: () => ({

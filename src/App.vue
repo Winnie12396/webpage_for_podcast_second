@@ -4,12 +4,7 @@
       <Toolbar/>
     </div>
 
-    <v-content>
-      <Intro/>
-      <Latest/>
-      <Episodes/>
-    
-    </v-content>
+    <router-view></router-view>
     
     
 
@@ -19,17 +14,12 @@
 
 <script>
 
-import Intro from './components/Intro.vue'
-import Latest from './components/Latest.vue'
-import Episodes from './components/Episodes.vue'
+
 import Toolbar from './components/Toolbar.vue'
 export default {
   name: 'App',
 
   components: {
-    Intro,
-    Latest,
-    Episodes,
     Toolbar
   },
 

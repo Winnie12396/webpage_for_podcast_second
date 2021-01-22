@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <v-layout row justify-center ma-4>
+      <v-flex text-center xs12 md4 xl3 pt-18 pb-8>
+        <h1>所有單集</h1>
+      </v-flex>
+    </v-layout>
     <v-layout row wrap justify-space-around>
       <v-flex xs6 md4 xl3
         v-for="item in items"
@@ -43,7 +48,7 @@
 
 <script>
   export default {
-    name: 'Episodes',
+    name: 'Episodescomp',
 
     data: () => ({
       isPlaying: false,
