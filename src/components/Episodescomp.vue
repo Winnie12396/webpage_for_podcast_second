@@ -9,7 +9,7 @@
     >
       
       <v-layout row wrap justify-center>
-        <v-flex xs4 md3 xl3 py-10 pt-10>
+        <v-flex xs4 md3 xl3 py-10 pt-10></v-flex>
           <v-img
             max-width="400"
             :aspect-ratio="1"
@@ -57,14 +57,49 @@
           </v-img>
           <v-card-title>{{ item.title }}</v-card-title>
           <v-card-subtitle>{{ item.subtitle }}</v-card-subtitle>
+          
+          <v-bottom-sheet inset hide-overlay>
+            <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              color="primary"
+              dark
+              
+              v-bind="attrs"
+              v-on="on"
+              @click="play(item.index)"
+            >
+              播放
+            </v-btn>
+            </template>
+            <v-card tile v-show="playerOpened">
+              <v-list>
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ playingTitle }}</v-list-item-title>
+                    <v-list-item-subtitle>{{ playingSubtitle }}</v-list-item-subtitle>
+                  </v-list-item-content>
 
-          <v-btn
-            color="primary"
-            hover
-            @click="play(item.index)"
-          >
-            播放
-          </v-btn>
+                  <v-spacer></v-spacer>
+
+                  <v-list-item-icon :class="{ 'mx-5': $vuetify.breakpoint.mdAndUp }">
+                    <v-btn icon>
+                      <v-icon v-if="isPlaying" @click="pause">mdi-pause</v-icon>
+                      <v-icon v-else>mdi-play</v-icon>
+                    </v-btn>
+                  </v-list-item-icon>
+
+                  <v-list-item-icon
+                    class="ml-0"
+                    :class="{ 'mr-3': $vuetify.breakpoint.mdAndUp }"
+                  >
+                    <v-btn icon @click="playerClose">
+                      <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                  </v-list-item-icon>
+                </v-list-item>
+              </v-list>
+            </v-card>
+          </v-bottom-sheet>  
           <v-btn
             color="third"
             hover
@@ -77,50 +112,6 @@
       </v-flex>
           
     </v-layout>
-    <div class="text-center">
-      <v-bottom-sheet inset hide-overlay>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            large
-            color="primary"
-            dark
-            v-bind="attrs"
-            v-on="on"
-          >
-            播放器
-          </v-btn>
-        </template>
-        <v-card tile v-show="playerOpened">
-
-          <v-list>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title>{{ playingTitle }}</v-list-item-title>
-                <v-list-item-subtitle>{{ playingSubtitle }}</v-list-item-subtitle>
-              </v-list-item-content>
-
-              <v-spacer></v-spacer>
-
-              <v-list-item-icon :class="{ 'mx-5': $vuetify.breakpoint.mdAndUp }">
-                <v-btn icon>
-                  <v-icon v-if="isPlaying" @click="pause">mdi-pause</v-icon>
-                  <v-icon v-else>mdi-play</v-icon>
-                </v-btn>
-              </v-list-item-icon>
-
-              <v-list-item-icon
-                class="ml-0"
-                :class="{ 'mr-3': $vuetify.breakpoint.mdAndUp }"
-              >
-                <v-btn icon @click="playerClose">
-                  <v-icon>mdi-close</v-icon>
-                </v-btn>
-              </v-list-item-icon>
-            </v-list-item>
-          </v-list>
-        </v-card>
-      </v-bottom-sheet>
-    </div>  
   </v-container>
 </template>
 
