@@ -1,11 +1,48 @@
 <template>
   <v-container>
+    <v-overlay
+      
+      :value="overlay"
+      :z-index="zIndex"
+      color="black"
+      :opacity="opacity"
+    >
+      
+      <v-layout row wrap justify-center>
+        <v-flex xs4 md3 xl3 py-10 pt-10>
+          <v-img
+            max-width="400"
+            :aspect-ratio="1"
+            src="@/assets/logo-fish.jpg"
+
+          >
+          </v-img>
+        </v-flex>
+      </v-layout>
+      <v-layout row wrap justify-center>
+        <v-flex xs8 md4 xl4 mb-6>
+          <div class="text-wrapper">{{ overlaytext }}</div>
+        </v-flex> 
+      </v-layout>
+      <v-layout row wrap justify-center>
+        <v-btn
+          icon
+          color="white"
+          large
+          @click="overlay = false"
+        >
+
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </v-layout>
+      
+    </v-overlay>
     <v-layout row justify-center ma-4>
       <v-flex text-center xs12 md4 xl3 pt-18 pb-8>
         <h1>所有單集</h1>
       </v-flex>
     </v-layout>
-    <v-layout row wrap justify-space-around>
+    <v-layout row wrap justify-space-around pb-8>
       <v-flex xs6 md4 xl3
         v-for="item in items"
         :key="item.id"
@@ -21,9 +58,6 @@
           <v-card-title>{{ item.title }}</v-card-title>
           <v-card-subtitle>{{ item.subtitle }}</v-card-subtitle>
 
-          <v-card-text>
-            {{ item.text }}
-          </v-card-text>
           <v-btn
             color="primary"
             hover
@@ -32,11 +66,11 @@
             播放
           </v-btn>
           <v-btn
-            color="success"
+            color="third"
             hover
-            @click="pause"
+            @click="openoverlay(item.index)"
           >
-            暫停
+            單集簡介
           </v-btn>
         </v-card>
 
@@ -47,12 +81,13 @@
       <v-bottom-sheet inset hide-overlay>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
-            color="red"
+            large
+            color="primary"
             dark
             v-bind="attrs"
             v-on="on"
           >
-            Open Player
+            播放器
           </v-btn>
         </template>
         <v-card tile v-show="playerOpened">
@@ -94,6 +129,9 @@
     name: 'Episodescomp',
 
     data: () => ({
+      overlay: false,
+      opacity: 0.7,
+      overlaytext: "",
       isPlaying: false,
       playerOpened: false,
       playingTitle: "",
@@ -105,8 +143,7 @@
           title: "Ep.1 今天是生物藝術！",
           subtitle: "來聊一個未來食物~",
           pic: require('@/assets/cloud1.jpg'),
-          text: "",
-          src: ""
+          text: "在今天的節目中，我們會介紹荷蘭食物設計師Chloé Rutzerveld的作品Edible Growth，這件作品有許多有趣之處，按下播放鍵一探究竟吧～\n節目分段：\n0:00~3:40  3D列印食物? & Edible Growth簡介\n4:00~7:35  做為一個食物設計師\n7:50~13:25  推測設計?可以吃嗎? & 作品理念介紹\n13:45 ~        食物+科技=不健康? 一起聽聽Chloé的想法吧\n",
         },
         {
           id: 2,
@@ -114,8 +151,7 @@
           title: "Ep.2 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud2.jpg'),
-          text: "",
-          src: ""
+          text: "《郭德堡變奏曲》（德語：Goldberg-Variationen，BWV 988），是巴哈晚期的一部鍵盤作品，1741年出版。全曲32段，全部演出40-80分鐘。\n這部作品長期不受人們重視，直到20世紀前半葉女大鍵琴家蘭多夫斯卡的公開演奏及錄音。之後，1955年加拿大鋼琴家格倫·古爾德將其選作自己的第一張錄音作品。而現在，哥德堡變奏被視為巴赫作品中最重要的變奏曲之一。全作品包括主題，30個變奏，主題反覆。本集為變奏2。",
         },
         {
           id: 3,
@@ -123,8 +159,7 @@
           title: "Ep.3 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud3.jpg'),
-          text: "",
-          src: ""
+          text: "《郭德堡變奏曲》（德語：Goldberg-Variationen，BWV 988），是巴哈晚期的一部鍵盤作品，1741年出版。全曲32段，全部演出40-80分鐘。\n這部作品長期不受人們重視，直到20世紀前半葉女大鍵琴家蘭多夫斯卡的公開演奏及錄音。之後，1955年加拿大鋼琴家格倫·古爾德將其選作自己的第一張錄音作品。而現在，哥德堡變奏被視為巴赫作品中最重要的變奏曲之一。全作品包括主題，30個變奏，主題反覆。本集為變奏4。",
         },
         {
           id: 4,
@@ -132,8 +167,7 @@
           title: "Ep.4 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud1.jpg'),
-          text: "",
-          src: ""
+          text: "《郭德堡變奏曲》（德語：Goldberg-Variationen，BWV 988），是巴哈晚期的一部鍵盤作品，1741年出版。全曲32段，全部演出40-80分鐘。\n這部作品長期不受人們重視，直到20世紀前半葉女大鍵琴家蘭多夫斯卡的公開演奏及錄音。之後，1955年加拿大鋼琴家格倫·古爾德將其選作自己的第一張錄音作品。而現在，哥德堡變奏被視為巴赫作品中最重要的變奏曲之一。全作品包括主題，30個變奏，主題反覆。本集為變奏6。",
         },
         {
           id: 5,
@@ -141,8 +175,7 @@
           title: "Ep.5 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud2.jpg'),
-          text: "",
-          src: ""
+          text: "《郭德堡變奏曲》（德語：Goldberg-Variationen，BWV 988），是巴哈晚期的一部鍵盤作品，1741年出版。全曲32段，全部演出40-80分鐘。\n這部作品長期不受人們重視，直到20世紀前半葉女大鍵琴家蘭多夫斯卡的公開演奏及錄音。之後，1955年加拿大鋼琴家格倫·古爾德將其選作自己的第一張錄音作品。而現在，哥德堡變奏被視為巴赫作品中最重要的變奏曲之一。全作品包括主題，30個變奏，主題反覆。本集為變奏12。",
         },
         {
           id: 6,
@@ -150,8 +183,7 @@
           title: "Ep.6 今天是古典樂！",
           subtitle: "來聽巴哈的郭德堡變奏曲~",
           pic: require('@/assets/cloud3.jpg'),
-          text: "",
-          src: ""
+          text: "《郭德堡變奏曲》（德語：Goldberg-Variationen，BWV 988），是巴哈晚期的一部鍵盤作品，1741年出版。全曲32段，全部演出40-80分鐘。\n這部作品長期不受人們重視，直到20世紀前半葉女大鍵琴家蘭多夫斯卡的公開演奏及錄音。之後，1955年加拿大鋼琴家格倫·古爾德將其選作自己的第一張錄音作品。而現在，哥德堡變奏被視為巴赫作品中最重要的變奏曲之一。全作品包括主題，30個變奏，主題反覆。本集為變奏18。",
         },
       ],
       current: {},
@@ -200,6 +232,10 @@
       playerClose () {
         this.playerOpened = false;
         this.pause();
+      },
+      openoverlay (passindex) {
+        this.overlay = !this.overlay;
+        this.overlaytext = this.items[passindex].text;
       }
     },
     created () {
@@ -207,6 +243,12 @@
     }
   }
 </script>
+<style>
+.text-wrapper {
+  white-space: pre-wrap;
+}
+</style>
+
 
 <!--
   <div class="justify-space-between">
