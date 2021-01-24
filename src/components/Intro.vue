@@ -20,8 +20,7 @@
           <v-card-subtitle>播客</v-card-subtitle>
 
           <v-card-text>
-            <p>一個19歲大學女生，在一次期末作業之中突發奇想，也許可以來試試看做podcast這件事。</p>
-            <p>主軸是跟吃有關的科學和其他事情，配上其他心血來潮的支線劇情~</p>
+            <p>節目主軸是跟吃有關的科學和其他事情，配上其他心血來潮的支線劇情~</p>
 
             <p>目前在Firstory、KKbox、Spotify、Apple Podcasts跟PocketCasts皆可收聽喔</p>
             <p>期待與你相見！</p>
