@@ -1,17 +1,25 @@
 <template>
   <v-container>
+    <v-layout row justify-center ma-4>
 
-    <v-layout row wrap justify-center>
-      <v-flex xs12 md4 xl3 py-10 my-8>
-        <v-img
-          max-width="350"
-          :aspect-ratio="1"
-          src="@/assets/logo-fish.jpg"
-          transition="scroll-x-transition"
+      <v-flex xs12 sm6 md6 lg4 xl3 py-10 my8>
+        <v-card
+          class="mx-auto"
         >
-        </v-img>
-      </v-flex>   
-      <v-flex xs12 md6 py-10 my-8>
+          <v-img
+            class="align-end"
+            :aspect-ratio="1/1"
+            src="@/assets/logo-fish.jpg"
+            max-height="600"
+          >
+          </v-img>
+        </v-card>  
+      </v-flex>
+      
+      
+    
+      
+      <v-flex xs12 sm6 md6 lg6 xl4 pb-10 pt-2 my-8>
         <v-card
           class="mx-auto"
           flat

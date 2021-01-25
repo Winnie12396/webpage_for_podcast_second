@@ -7,7 +7,7 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap justify-space-around pb-8>
-      <v-flex xs6 md4 xl3
+      <v-flex xs7 sm6 md4 xl4
         v-for="item in items"
         :key="item.id"
         pa-4

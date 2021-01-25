@@ -8,14 +8,14 @@
     </v-layout>
     <v-layout row justify-center ma-4>
 
-      <v-flex xs12 md4 xl3 pt-12 pb-50>
+      <v-flex xs12 sm6 md4 xl3 pt-12 pb-50>
         <v-card
           class="mx-auto"
         >
           <v-img
             class="align-end"
             :aspect-ratio="1/1"
-            src="@/assets/logo-fish.jpg"
+            src="@/assets/ep6.jpg"
             max-height="336"
           >
           </v-img>
@@ -27,11 +27,47 @@
 
             這部作品長期不受人們重視，直到20世紀前半葉女大鍵琴家蘭多夫斯卡的公開演奏及錄音。之後，1955年加拿大鋼琴家格倫·古爾德將其選作自己的第一張錄音作品。而現在，哥德堡變奏被視為巴赫作品中最重要的變奏曲之一。全作品包括主題，30個變奏，主題反覆。
           </v-card-text>
-          <v-btn
-            color="primary"
-          >
-            播放
-          </v-btn>
+          <v-bottom-sheet inset hide-overlay persistent>
+            <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              color="primary"
+              dark
+              v-bind="attrs"
+              v-on="on"
+              @click="play"
+            >
+              播放
+            </v-btn>
+            </template>
+            <v-card tile v-show="playerOpened">
+              <v-list>
+                <v-list-item>
+                  <v-list-item-content>
+                    <v-list-item-title>Ep.6 今天是古典樂！</v-list-item-title>
+                    <v-list-item-subtitle>來聽巴哈的郭德堡變奏曲</v-list-item-subtitle>
+                  </v-list-item-content>
+
+                  <v-spacer></v-spacer>
+
+                  <v-list-item-icon :class="{ 'mx-5': $vuetify.breakpoint.mdAndUp }">
+                    <v-btn icon>
+                      <v-icon v-if="isPlaying" @click="pause">mdi-pause</v-icon>
+                      <v-icon v-else>mdi-play</v-icon>
+                    </v-btn>
+                  </v-list-item-icon>
+
+                  <v-list-item-icon
+                    class="ml-0"
+                    :class="{ 'mr-3': $vuetify.breakpoint.mdAndUp }"
+                  >
+                    <v-btn icon @click="playerClose">
+                      <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                  </v-list-item-icon>
+                </v-list-item>
+              </v-list>
+            </v-card>
+          </v-bottom-sheet>  
         </v-card>
         <v-spacer></v-spacer>
       </v-flex>
@@ -46,7 +82,27 @@
     name: 'Latest',
 
     data: () => ({
+      player: new Audio(),
+      isPlaying: false,
+      playerOpened: false,
     }),
+    methods: {
+      play () {
+        this.player.src = require('@/assets/BWV988-Variatio18.mp3');
+        this.player.play();
+        this.isPlaying = true;
+        this.playerOpened = true;
+
+      },
+      pause () {
+        this.player.pause();
+        this.isPlaying = false;
+      },
+      playerClose () {
+        this.playerOpened = false;
+        this.pause();
+      },
+    }
   }
 </script>
 

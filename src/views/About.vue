@@ -2,7 +2,7 @@
   <v-content class="about">
 
     <v-layout row wrap justify-center pt-12>
-      <v-flex xs12 md8 px-10 mb-10>
+      <v-flex xs10 md8 px-10 mb-10>
         <body-1>
           <p>天空裡的魚，這個節目的起源，是一個19歲大學女生，在一次期末作業之中突發奇想，也許可以來試試看做podcast這件事。</p>
           <p>這個作業是生物藝術概論課的期末作業，要做形式不拘的藝術普及，介紹生物藝術的作品；我的成品就是第一集的內容。</p>
@@ -19,7 +19,7 @@
     </v-layout>
     <v-divider></v-divider>
     <v-layout row wrap justify-center pt-12 pb-50>
-      <v-flex xs12 md8 px-10 pb-10>
+      <v-flex xs10 md8 px-10 pb-10>
         <div class="concept"><h3>網頁設計理念概述</h3></div>
         <body-1>
           <p>這份期末作業，我原本是想把期中啟發自gamified design的簡單網頁再做擴充，但畫設計圖的時候覺得沒辦法兼顧內容、理念跟美感，響應式的技術問題也不知道怎麼解決，就先擱置。</p>
@@ -31,7 +31,7 @@
           <p>播出音訊的部分我試了很久，參考Youtuber Bibek的教學影片，再自己邊試邊改了很多次才成功運作，又加上單集簡介的overlay跟bottom sheets做的播放器。</p>
           <p>播放器還有一些小問題沒解決，像是我原本想加播放進度條，並讓音訊暫停之後可以從暫停處繼續播，但時間關係目前只能做到這樣。</p>
           <p>也想加背景的圖或引入animation.css做動畫，但一直失敗，也因為時間關係先停在這裡，因為前面的東西有點寫太久。</p>
-          <p>響應式的部分，是參考幾個教學影片的結果，但我想應該有更好的寫法。</p>
+          <p>響應式的部分我盡力了…… 是參考幾個教學影片的結果，但我想應該有更好的寫法。</p>
           <p>以上。</p>
         </body-1>
       </v-flex>
